@@ -1,0 +1,10 @@
+{
+
+  "livereload": {
+     "available": true,
+     "port": 8080,
+     "startPath": "html/index.html"
+   },
+
+  "support_webp": true
+}
