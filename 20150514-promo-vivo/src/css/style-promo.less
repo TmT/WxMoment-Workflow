@@ -1,0 +1,656 @@
+@import 'lib-reset-mobile';
+@import 'lib-mixins-mobile';
+@import 'lib-animation';
+
+html, body {
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #070709;
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #070709;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.screen__inner {
+    position: absolute;
+    width: 320px;
+    height: 504px;
+    top: 50%;
+    left: 50%;
+    margin: -252px 0 0 -160px;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    overflow: hidden;
+}
+
+.screen-arrow{
+    position: absolute;
+    left: 50%;
+    bottom: 20px/2;
+    width: 66px/2;
+    height: 36px/2;
+    margin-left: -66px/4;
+    background: url(../img/screen_arrow.png) no-repeat;
+    .background-size(66px/2);
+    opacity: 0;
+}
+
+.screen__bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.screen1__bg{
+    background: url(../img/screen1_bg.jpg) no-repeat center top;
+    .background-size(contain);
+}
+
+.screen2__bg {
+    background: url(../img/screen2_bg.jpg) no-repeat center top;
+    .background-size(contain);
+}
+
+.screen3__bg {
+    background: url(../img/screen3_bg.jpg) no-repeat center top;
+    .background-size(contain);
+}
+
+.screen4__bg {
+    background: url(../img/screen4_bg.jpg) no-repeat center top;
+    .background-size(contain);
+}
+
+.screen__txt{
+    position: absolute;
+    left: 50%;
+    opacity: 0;
+}
+
+.screen1__txt1{
+    bottom: 190px/2;
+    width: 110px/2;
+    height: 26px/2;
+    margin-left: -110px/4;
+    background: url(../img/screen1_txt1.png) no-repeat;
+    .background-size(110px/2);
+}
+
+.screen2__txt1{
+    bottom: 190px/2;
+    width: 110px/2;
+    height: 28px/2;
+    margin-left: -110px/4;
+    background: url(../img/screen2_txt1.png) no-repeat;
+    .background-size(110px/2);
+}
+
+.screen3__txt1{
+    bottom: 190px/2;
+    width: 110px/2;
+    height: 26px/2;
+    margin-left: -110px/4;
+    background: url(../img/screen3_txt1.png) no-repeat;
+    .background-size(110px/2);
+}
+
+.screen4__txt1{
+    bottom: 190px/2;
+    width: 110px/2;
+    height: 28px/2;
+    margin-left: -110px/4;
+    background: url(../img/screen4_txt1.png) no-repeat;
+    .background-size(110px/2);
+}
+
+.screen1__txt2 {
+    bottom: 138px/2;
+    width: 362px/2;
+    height: 28px/2;
+    margin-left: -362px/4;
+    background: url(../img/screen1_txt2.png) no-repeat;
+    .background-size(362px/2);
+}
+
+.screen2__txt2 {
+    bottom: 138px/2;
+    width: 334px/2;
+    height: 26px/2;
+    margin-left: -334px/4;
+    background: url(../img/screen2_txt2.png) no-repeat;
+    .background-size(334px/2);
+}
+
+.screen3__txt2 {
+    bottom: 138px/2;
+    width: 362px/2;
+    height: 28px/2;
+    margin-left: -362px/4;
+    background: url(../img/screen3_txt2.png) no-repeat;
+    .background-size(362px/2);
+}
+
+.screen4__txt2 {
+    bottom: 138px/2;
+    width: 278px/2;
+    height: 26px/2;
+    margin-left: -278px/4;
+    background: url(../img/screen4_txt2.png) no-repeat;
+    .background-size(278px/2);
+}
+
+.screen__icon{
+    position: absolute;
+    left: 50%;
+    top: 68px/2;
+    width: 100px/2;
+    height: 100px/2;
+    margin-left: -100px/4;
+    opacity: 0;
+}
+
+.screen1__icon{
+    background: url(../img/screen1_icon.png) no-repeat;
+    .background-size(100px/2);
+}
+
+.screen2__icon{
+    background: url(../img/screen2_icon.png) no-repeat;
+    .background-size(100px/2);
+}
+
+.screen3__icon{
+    background: url(../img/screen3_icon.png) no-repeat;
+    .background-size(100px/2);
+}
+
+.screen4__icon{
+    background: url(../img/screen4_icon.png) no-repeat;
+    .background-size(100px/2);
+}
+
+.screen1__txt3{
+    top: 210px/2;
+    width: 336px/2;
+    height: 34px/2;
+    margin-left: -336px/4;
+    background: url(../img/screen1_txt3.png) no-repeat;
+    .background-size(336px/2);
+}
+
+.screen2__txt3{
+    top: 210px/2;
+    width: 374px/2;
+    height: 34px/2;
+    margin-left: -374px/4;
+    background: url(../img/screen2_txt3.png) no-repeat;
+    .background-size(374px/2);
+}
+
+.screen3__txt3{
+    top: 210px/2;
+    width: 314px/2;
+    height: 34px/2;
+    margin-left: -314px/4;
+    background: url(../img/screen3_txt3.png) no-repeat;
+    .background-size(314px/2);
+}
+
+.screen4__txt3{
+    top: 210px/2;
+    width: 300px/2;
+    height: 34px/2;
+    margin-left: -300px/4;
+    background: url(../img/screen4_txt3.png) no-repeat;
+    .background-size(300px/2);
+}
+
+.screen1__txt4{
+    top: 266px/2;
+    width: 336px/2;
+    height: 22px/2;
+    margin-left: -336px/4;
+    background: url(../img/screen1_txt4.png) no-repeat;
+    .background-size(336px/2);
+}
+
+.screen2__txt4{
+    top: 266px/2;
+    width: 318px/2;
+    height: 22px/2;
+    margin-left: -318px/4;
+    background: url(../img/screen2_txt4.png) no-repeat;
+    .background-size(318px/2);
+}
+
+.screen3__txt4{
+    top: 266px/2;
+    width: 218px/2;
+    height: 20px/2;
+    margin-left: -218px/4;
+    background: url(../img/screen3_txt4.png) no-repeat;
+    .background-size(218px/2);
+}
+
+.screen4__txt4{
+    top: 266px/2;
+    width: 174px/2;
+    height: 22px/2;
+    margin-left: -174px/4;
+    background: url(../img/screen4_txt4.png) no-repeat;
+    .background-size(174px/2);
+}
+
+.screen1__pic1{
+    position: absolute;
+    left: 0;
+    top: 318px/2;
+    width: 370px/2;
+    height: 474px/2;
+    background: url(../img/screen1_pic1.png) no-repeat;
+    .background-size(370px/2);
+    opacity: 0;
+}
+
+.screen1__pic2{
+    position: absolute;
+    right: 0;
+    top: 496px/2;
+    width: 372px/2;
+    height: 494px/2;
+    background: url(../img/screen1_pic2.png) no-repeat;
+    .background-size(372px/2);
+    opacity: 0;
+}
+
+.screen2__pic1{
+    position: absolute;
+    left: 0;
+    bottom: 130px/2;
+    width: 640px/2;
+    height: 514px/2;
+    background: url(../img/screen2_pic1.png) no-repeat;
+    .background-size(640px/2);
+    opacity: 0;
+}
+
+.scree2__mo{
+    opacity: 0;
+}
+
+.screen2__pic2{
+    position: absolute;
+    left: 0;
+    bottom: 246px/2;
+    width: 640px/2;
+    height: 516px/2;
+    background: url(../img/screen2_pic2.png) no-repeat;
+    .background-size(640px/2);
+}
+
+.screen2__pic3{
+    position: absolute;
+    left: 0;
+    bottom: 302px/2;
+    width: 640px/2;
+    height: 452px/2;
+    background: url(../img/screen2_pic3.png) no-repeat;
+    .background-size(640px/2);
+}
+
+.screen2__pic4{
+    position: absolute;
+    left: 0;
+    bottom: 360px/2;
+    width: 640px/2;
+    height: 396px/2;
+    background: url(../img/screen2_pic4.png) no-repeat;
+    .background-size(640px/2);
+}
+
+.screen2__pic5{
+    position: absolute;
+    left: 0;
+    bottom: 130px/2;
+    width: 640px/2;
+    height: 624px/2;
+    background: url(../img/screen2_pic5.png) no-repeat;
+    .background-size(640px/2);
+    opacity: 0;
+}
+
+.screen3__pic1{
+    position: absolute;
+    left: -115px;
+    bottom: 122px/2;
+    width: 874px/2;
+    height: 540px/2;
+    background: url(../img/screen3_pic1.png) no-repeat;
+    .background-size(874px/2);
+    opacity: 0;
+}
+
+.screen__pic-wrap{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 572px/2;
+    height: 526px/2;
+    opacity: 0;
+}
+
+.screen4__pic-circle{
+    opacity: 0;
+}
+
+.screen4__pic1{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 572px/2;
+    height: 526px/2;
+    background: url(../img/screen4_pic1.png) no-repeat;
+    .background-size(572px/2);
+}
+
+.screen4__pic2{
+    position: absolute;
+    left: 66px;
+    top: 18px;
+    width: 118px/2;
+    height: 136px/2;
+    background: url(../img/screen4_pic2.png) no-repeat;
+    .background-size(118px/2);
+}
+
+.screen4__pic3{
+    position: absolute;
+    left: 78px;
+    top: 10px;
+    width: 98px/2;
+    height: 122px/2;
+    background: url(../img/screen4_pic3.png) no-repeat;
+    .background-size(98px/2);
+    opacity: 0;
+}
+
+.screen4__pic4{
+    position: absolute;
+    left: 78px;
+    top: 10px;
+    width: 78px/2;
+    height: 104px/2;
+    background: url(../img/screen4_pic4.png) no-repeat;
+    .background-size(78px/2);
+    opacity: 0;
+}
+
+.screen4__pic5{
+    position: absolute;
+    left: 78px;
+    top: 10px;
+    width: 96px/2;
+    height: 112px/2;
+    background: url(../img/screen4_pic5.png) no-repeat;
+    .background-size(96px/2);
+    opacity: 0;
+}
+
+.screen4__pic6{
+    position: absolute;
+    left: 78px;
+    top: 10px;
+    width: 84px/2;
+    height: 114px/2;
+    background: url(../img/screen4_pic6.png) no-repeat;
+    .background-size(84px/2);
+    opacity: 0;
+}
+
+.screen4__pic7{
+    position: absolute;
+    left: 78px;
+    top: 10px;
+    width: 82px/2;
+    height: 110px/2;
+    background: url(../img/screen4_pic7.png) no-repeat;
+    .background-size(82px/2);
+    opacity: 0;
+}
+
+.screen4__pic8{
+    position: absolute;
+    left: 78px;
+    top: 10px;
+    width: 78px/2;
+    height: 116px/2;
+    background: url(../img/screen4_pic8.png) no-repeat;
+    .background-size(78px/2);
+    opacity: 0;
+}
+
+.logo{
+    position: absolute;
+    left: 50%;
+    bottom: 86px/2;
+    width: 292px/2;
+    height: 26px/2;
+    margin-left: -292px/4;
+    background: url(../img/logo.png) no-repeat;
+    .background-size(292px/2);
+    opacity: 0;
+}
+
+.screen5__txt1{
+    position: absolute;
+    left: 50%;
+    top: 104px/2;
+    width: 140px/2;
+    height: 34px/2;
+    margin-left: -140px/4;
+    background: url(../img/screen5_txt1.png) no-repeat;
+    .background-size(140px/2);
+    opacity: 0;
+}
+
+.screen5__txt2{
+    position: absolute;
+    left: 50%;
+    top: 174px/2;
+    width: 160px/2;
+    height: 24px/2;
+    margin-left: -160px/4;
+    background: url(../img/screen5_txt2.png) no-repeat;
+    .background-size(160px/2);
+    opacity: 0;
+}
+
+.screen5__txt3{
+    position: absolute;
+    left: 50%;
+    top: 236px/2;
+    width: 118px/2;
+    height: 32px/2;
+    margin-left: -118px/4;
+    background: url(../img/screen5_txt3.png) no-repeat;
+    .background-size(118px/2);
+    opacity: 0;
+}
+
+.screen5__pic1{
+    position: absolute;
+    left: 50%;
+    top: 364px/2;
+    width: 616px/2;
+    height: 320px/2;
+    margin-left: -616px/4;
+    background: url(../img/screen5_pic1.png) no-repeat;
+    .background-size(616px/2);
+    opacity: 0;
+}
+
+.screen5__txt4{
+    position: absolute;
+    left: 50%;
+    bottom: 178px/2;
+    width: 262px/2;
+    height: 42px/2;
+    margin-left: -262px/4;
+    background: url(../img/screen5_txt4.png) no-repeat;
+    .background-size(262px/2);
+    opacity: 0;
+}
+
+.screen__btn{
+    position: absolute;
+    left: 50%;
+    bottom: 86px/2;
+    width: 396px/2;
+    height: 70px/2;
+    margin-left: -396px/4;
+    background: url(../img/screen_btn.png) no-repeat;
+    .background-size(396px/2);
+    opacity: 0;
+    a{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.current {
+    .screen-arrow{
+        .animation(swipeMove 1.5s 6s ease infinite);
+    }
+    .screen1__bg,
+    .screen2__bg,
+    .screen3__bg,
+    .screen4__bg{
+        .animation(anim-bg 5s ease both);
+    }
+    .screen1__txt1,
+    .screen2__txt1,
+    .screen3__txt1,
+    .screen4__txt1{
+        .animation(anim-txt 0.8s 1s ease both);
+    }
+    .screen1__txt2,
+    .screen2__txt2,
+    .screen3__txt2,
+    .screen4__txt2{
+        .animation(anim-txt 0.8s 1.3s ease both);
+    }
+    .screen__txt-wrap{
+        .animation(fade-out 1.5s 3s ease both);
+    }
+    .screen1__pic1{
+        .animation(leftToRightMove 1.5s 3.5s ease both);
+    }
+    .screen1__pic2{
+        .animation(rightToLeftMove 1.5s 3.5s ease both);
+    }
+    .screen2__pic1,
+    .scree2__mo{
+        .animation(fade-in 1.5s 4s ease both);
+    }
+    .screen2__pic2{
+        .animation(topToDownMove_1 1.5s 5s ease both);
+    }
+    .screen2__pic3{
+        .animation(topToDownMove_2 1.5s 5.3s ease both);
+    }
+    .screen2__pic4{
+        .animation(topToDownMove_3 1.5s 5.4s ease both);
+    }
+    .screen2__pic5{
+        .animation(fade-in 1.5s 6.5s ease both);
+    }
+    .screen3__pic1{
+        .animation(rightToLeftMove 1.5s 4s ease both);
+    }
+    .screen__pic-wrap{
+        .animation(downToTopMove 1.3s 4s ease both);
+    }
+    .screen4__pic-circle{
+        .animation(fade-in 0.5s 5.3s ease both);
+    }
+    .screen4__pic3{
+        .animation(circleMove3 1s 5.3s cubic-bezier(.71, -0.01, .43, 1) both);
+    }
+    .screen4__pic4{
+        .animation(circleMove4 1s 5.3s cubic-bezier(.71, -0.01, .43, 1) both);
+    }
+    .screen4__pic5{
+        .animation(circleMove5 1s 5.3s cubic-bezier(.71, -0.01, .43, 1) both);
+    }
+    .screen4__pic6{
+        .animation(circleMove6 1s 5.3s cubic-bezier(.71, -0.01, .43, 1) both);
+    }
+    .screen4__pic7{
+        .animation(circleMove7 1s 5.3s cubic-bezier(.71, -0.01, .43, 1) both);
+    }
+    .screen4__pic8{
+        .animation(circleMove8 1s 5.3s cubic-bezier(.71, -0.01, .43, 1) both);
+    }
+    .logo{
+        .animation(fade-in 1.3s 5s ease both);
+    }
+    .screen1__icon,
+    .screen2__icon,
+    .screen3__icon,
+    .screen4__icon{
+        .animation(fadeInUp 1.3s 3.8s ease both);
+    }
+    .screen1__txt3,
+    .screen2__txt3,
+    .screen3__txt3,
+    .screen4__txt3{
+        .animation(fadeInUp 1.3s 4s ease both);
+    }
+    .screen1__txt4,
+    .screen2__txt4,
+    .screen3__txt4,
+    .screen4__txt4{
+        .animation(fadeInUp 1.3s 4.2s ease both);
+    }
+    .screen5__txt1{
+        .animation(fadeInUp 1.5s 0.5s ease both);
+    }
+    .screen5__txt2{
+        .animation(fadeInUp 1.5s 0.8s ease both);
+    }
+    .screen5__txt3{
+        .animation(fadeInUp 1.5s 1.1s ease both);
+    }
+    .screen5__pic1{
+        .animation(fadeInUp 1.5s 1.4s ease both);
+    }
+    .screen5__txt4{
+        .animation(fadeInUp 1.5s 1.7s ease both);
+    }
+    .screen__btn{
+        .animation(fadeInUp 1.5s 2s ease both);
+    }
+    .screen-arrow1{
+        .animation(swipeMove 1.5s 5s ease infinite);
+    }
+    .screen-arrow2{
+        .animation(swipeMove 1.5s 7.2s ease infinite);
+    }
+}

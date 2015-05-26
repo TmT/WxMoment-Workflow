@@ -7,6 +7,8 @@ var watch = require('gulp-watch');
 var ejshelper = require('tmt-ejs-helper');
 var util = require('./lib/util');
 var bs = require('browser-sync').create();
+var fs = require('fs');
+var path = require('path');
 
 module.exports = function (gulp, config) {
     gulp.task('build_dev', function () {
@@ -40,7 +42,7 @@ module.exports = function (gulp, config) {
                         task_server();
                     }
                 });
-                
+
             }
         });
     });
@@ -52,28 +54,44 @@ module.exports = function (gulp, config) {
         return cb;
     }
 
+    function file_process(vinyl){
+        var file = vinyl.history[0];
+        var event = vinyl.event;
+        var fileBase = file.slice(file.indexOf('src')+4);
+        file = path.join('./', file.slice(file.indexOf('src')));
+
+        if(event == "unlink"){
+            var remote = path.join('./', 'dev/', fileBase);
+            fs.unlink(remote);
+        }
+        return file;
+    }
     var task_img = function (cb) {
+        var file = (typeof cb == 'string')?cb:['./src/img/**/*'];
         cb = check_cb(cb);
         util.task_log('task_img');
-        gulp.src('./src/img/**/*').pipe(copy('./dev/', {prefix: 1})).on('end', cb);
+        gulp.src(file).pipe(copy('./dev/', {prefix: 1})).on('end', cb);
     };
 
     var task_slice = function (cb) {
+        var file = (typeof cb == 'string')?cb:['./src/slice/**/*'];
         cb = check_cb(cb);
         util.task_log('task_slice');
-        gulp.src('./src/slice/**/*').pipe(copy('./dev/', {prefix: 1})).on('end', cb);
+        gulp.src(file).pipe(copy('./dev/', {prefix: 1})).on('end', cb);
     };
 
     var task_js = function (cb) {
+        var file = (typeof cb == 'string')?cb:['./src/js/**/*'];
         cb = check_cb(cb);
         util.task_log('task_js');
-        gulp.src('./src/js/**/*').pipe(copy('./dev/', {prefix: 1})).on('end', cb);
+        gulp.src(file).pipe(copy('./dev/', {prefix: 1})).on('end', cb);
     };
 
     var task_media = function (cb) {
+        var file = (typeof cb == 'string')?cb:['./src/media/**/*'];
         cb = check_cb(cb);
         util.task_log('task_media');
-        gulp.src('./src/media/**/*').pipe(copy('./dev/', {prefix: 1})).on('end', cb);
+        gulp.src(file).pipe(copy('./dev/', {prefix: 1})).on('end', cb);
     };
 
     var task_less = function (cb) {
@@ -88,9 +106,10 @@ module.exports = function (gulp, config) {
     };
 
     var task_html = function (cb) {
+        var file = (typeof cb == 'string')?cb:['./src/html/**/*.*', '!./src/html/_*/**.html'];
         cb = check_cb(cb);
         util.task_log('task_html');
-        gulp.src(['./src/html/**/*.html', '!./src/html/_*/**.html'])
+        gulp.src(file,{base:"./src/html/"})
             .pipe(ejs(ejshelper()).on('error', function (error) {
                 util.log(util.colors.red(error.message));
             }))
@@ -110,20 +129,31 @@ module.exports = function (gulp, config) {
 
     var task_watch = function () {
 
-        watch('./src/img/**/*', {verbose: true}, function () {
-            task_img();
+        watch('./src/img/**/*', {verbose: true}, function (vinyl) {
+            var file = file_process(vinyl);
+            task_img(file);
+            config.livereload && bs.reload();
+
         });
 
-        watch('./src/slice/**/*', {verbose: true}, function () {
-            task_slice();
+        watch('./src/slice/**/*', {verbose: true}, function (vinyl) {
+            var file = file_process(vinyl);
+            task_slice(file);
+            config.livereload && bs.reload();
         });
 
-        watch('./src/js/**/*', {verbose: true}, function () {
-            task_js();
+        watch('./src/js/**/*', {verbose: true}, function (vinyl) {
+            var file = file_process(vinyl);
+            task_js(file);
+            config.livereload && bs.reload();
+
         });
 
-        watch('./src/media/**/*', {verbose: true}, function () {
-            task_media();
+        watch('./src/media/**/*', {verbose: true}, function (vinyl) {
+            var file = file_process(vinyl);
+            task_media(file);
+            config.livereload && bs.reload();
+
         });
 
         watch('./src/css/**/*', {verbose: true}, function () {
@@ -131,8 +161,9 @@ module.exports = function (gulp, config) {
             config.livereload && bs.reload();
         });
 
-        watch('./src/html/**/*.html', {verbose: true}, function () {
-            task_html();
+        watch('./src/html/**/*.html', {verbose: true}, function (vinyl) {
+            var file = file_process(vinyl);
+            task_html(file);
             config.livereload && bs.reload();
         });
 

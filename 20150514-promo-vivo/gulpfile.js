@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var fs = require('fs');
 var path = require('path');
 
-//注册
 var deep = 3;
 run_tasks('tasks');
 

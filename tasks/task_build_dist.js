@@ -8,6 +8,7 @@ var minifyCSS = require('gulp-minify-css');
 var tmtsprite = require('gulp-tmtsprite');
 var gulpif = require('gulp-if');
 var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 var usemin = require('gulp-usemin2');
 var uglify = require('gulp-uglify');
 var del = require('del');
@@ -48,7 +49,9 @@ module.exports = function (gulp, config) {
             },
             function (cb) {
                 gulp.src('./src/img/**/*')
-                    .pipe(imagemin())
+                    .pipe(imagemin({
+                        use: [pngquant()]
+                    }))
                     .pipe(gulp.dest('./dist/img'))
                     .on('end', function () {
                         util.task_log('task_imagemin');
@@ -58,7 +61,9 @@ module.exports = function (gulp, config) {
 
             function (cb) {
                 gulp.src('./dist/sprite/**/*')
-                    .pipe(imagemin())
+                    .pipe(imagemin({
+                        use: [pngquant()]
+                    }))
                     .pipe(gulp.dest('./dist/sprite'))
                     .on('end', function () {
                         util.task_log('task_spritemin');

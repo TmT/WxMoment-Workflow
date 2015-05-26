@@ -1,0 +1,15 @@
+{
+  "livereload": {
+     "available": true,
+     "port": 8080,
+     "startPath": "html/index.html"
+   },
+
+  "plugins": {
+    "build_dev_after": ["reference"],
+    "build_dist_after": ["replace"],
+    "zip_after": []
+  },
+
+  "support_webp": false
+}
